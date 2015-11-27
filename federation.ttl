@@ -1,0 +1,295 @@
+@prefix : <http://lod.unifi.university/about#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix omn: <http://open-multinet.info/ontology/omn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix omn-service: <http://open-multinet.info/ontology/omn-service#> .
+@prefix omn-domain-pc: <http://open-multinet.info/ontology/omn-domain-pc#> .
+@prefix omn-lifecycle: <http://open-multinet.info/ontology/omn-lifecycle#> .
+@prefix omn-federation: <http://open-multinet.info/ontology/omn-federation#> .
+@prefix omn-domain-geni-fire: <http://open-multinet.info/ontology/omn-domain-geni-fire#> .
+@base <http://lod.unifi.university/about#> .
+
+<http://lod.unifi.university/about> rdf:type owl:Ontology ;
+
+                               rdfs:label "UNIFI"@en ;
+
+                               dc:date "2014-11-06"^^xsd:string ;
+
+                               owl:versionInfo "2015-11-26"^^xsd:string ;
+
+                               dc:title "UNIFI Federation Data Set"^^xsd:string ;
+
+                               vann:preferredNamespacePrefix "unifi"^^xsd:string ;
+
+                               dcterms:modified "2015-11-26" ;
+
+                               dc:description "Meta information about the UNIFI federation dataset."@en ;
+
+                               rdfs:comment "Meta information about the UNIFI federation dataset."@en ;
+
+                               dc:creator <http://alex.willner.ws/about#me> ;
+
+                               dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+
+                               dc:rights <http://creativecommons.org/licenses/by/4.0/> ;
+
+                               foaf:homepage <http://unifi.university/> ;
+
+                               dc:publisher <http://unifi.university/> ;
+
+                               vann:preferredNamespaceUri : .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://open-multinet.info/ontology/omn#hasEndpoint
+
+omn:hasEndpoint rdf:type owl:AnnotationProperty .
+
+
+
+###  http://open-multinet.info/ontology/omn#hasService
+
+omn:hasService rdf:type owl:AnnotationProperty .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#administers
+
+omn-federation:administers rdf:type owl:AnnotationProperty .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#hasFederationMember
+
+omn-federation:hasFederationMember rdf:type owl:AnnotationProperty .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#isAdministeredBy
+
+omn-federation:isAdministeredBy rdf:type owl:AnnotationProperty .
+
+
+
+###  http://rdfs.org/ns/void#sparqlEndpoint
+
+void:sparqlEndpoint rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+
+wgs84:lat rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+
+wgs84:long rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/depiction
+
+foaf:depiction rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+
+foaf:homepage rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://open-multinet.info/ontology/omn-domain-geni-fire#AMService
+
+omn-domain-geni-fire:AMService rdf:type owl:Class .
+
+
+
+###  http://open-multinet.info/ontology/omn-domain-geni-fire#SAService
+
+omn-domain-geni-fire:SAService rdf:type owl:Class .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#Federation
+
+omn-federation:Federation rdf:type owl:Class .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#FederationMember
+
+omn-federation:FederationMember rdf:type owl:Class .
+
+
+
+###  http://open-multinet.info/ontology/omn-federation#Infrastructure
+
+omn-federation:Infrastructure rdf:type owl:Class .
+
+
+
+###  http://schema.org/WebSite
+
+schema:WebSite rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://fuseco.fokus.fraunhofer.de/about#me
+
+<http://fuseco.fokus.fraunhofer.de/about#me> rdf:type omn-federation:Infrastructure ,
+                                                      owl:NamedIndividual ;
+
+                                             rdfs:label "Fraunhofer FUSECO Playground" ;
+
+                                             rdfs:comment "Advanced ICT platforms (including Cloud, M2M, SDN, NFV and Mobile Broadband), tools and cutting edge expertise for testing, monitoring, test control, remote usage and federation with external testbeds." ;
+
+                                             omn-federation:isAdministeredBy <http://www.fokus.fraunhofer.de/about#me> ;
+
+                                             omn:hasService <urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+cm> ,
+                                                            <urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+sa> .
+
+
+
+###  http://lod.unifi.university/about#infrastructure
+
+:infrastructure rdf:type omn-federation:Infrastructure ,
+                         owl:NamedIndividual ;
+
+                rdfs:label "UNIFI Backoffice Infrastructure" ;
+
+                rdfs:comment "The infrastructure for the portal, etc..." ;
+
+                omn-federation:isAdministeredBy :me ;
+
+                omn:hasService :portal .
+
+
+
+###  http://lod.unifi.university/about#me
+
+:me rdf:type omn-federation:Federation ,
+             owl:NamedIndividual ;
+
+    rdfs:label "UNIFI" ;
+
+    rdfs:comment "The UNIFI federation is a collaboration of European Future Internet Research and Experimentation (FIRE) testbeds. It was formed by a consortium of initial 17 partner organisations from 8 countries and is coordinated by iMinds, Belgium. It started in October 2012." ;
+
+    foaf:homepage <http://unifi.university/> ;
+
+    void:sparqlEndpoint <http://lod.unifi.university/sparql> ;
+
+    omn-federation:administers :infrastructure ;
+
+    omn-federation:hasFederationMember <http://www.av.tu-berlin.de/about#me> ,
+                                       <http://www.upmc.fr/about#me> ,
+                                       <http://www.sztaki.hu/about#me> ,
+                                       <http://www.fokus.fraunhofer.de/about#me> ;
+
+    foaf:depiction <http://www.unifi.university/wp-content/uploads/2014/11/UNIFI-logo.jpg> ;
+
+    foaf:mbox <mailto:contact@unifi.university> .
+
+
+###  http://lod.unifi.university/about#portal
+
+:portal rdf:type schema:WebSite ,
+                 owl:NamedIndividual ;
+
+        rdfs:label "UNIFI Single Sign-On Portal" ;
+
+        omn:hasEndpoint <http://portal.unifi.university/> .
+
+
+
+###  http://www.fokus.fraunhofer.de/about#me
+
+<http://www.fokus.fraunhofer.de/about#me> rdf:type omn-federation:FederationMember ,
+                                                   owl:NamedIndividual ;
+
+                                          rdfs:label "Fraunhofer FOKUS" ;
+
+                                          wgs84:long 13.314 ;
+
+                                          wgs84:lat 52.526 ;
+
+                                          rdfs:comment "With around 450 employees FOKUS is one of the largest Fraunhofer institutes. Scientists from 10 competence centers cover the complete chain of development of urban IT-Infrastructure right from architectural design and modelling to middleware and platforms right up to concrete applications like the warning system KATWARN." ;
+
+                                          rdfs:isDefinedBy <http://de.dbpedia.org/page/Fraunhofer-Institut_für_Offene_Kommunikationssysteme> ;
+
+                                          omn-federation:administers <http://fuseco.fokus.fraunhofer.de/about#me> ;
+
+                                          foaf:homepage <https://www.fokus.fraunhofer.de/> ;
+
+                                          foaf:depiction <https://www.fokus.fraunhofer.de/assets/logo-56550c0d3788abb69084c8017983224e.png> ;
+
+                                          foaf:mbox <mailto:info@fokus.fraunhofer.de> .
+
+
+
+###  urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+cm
+
+<urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+cm> rdf:type omn-domain-geni-fire:AMService ,
+                                                                    owl:NamedIndividual ;
+
+                                                           rdfs:label "GENI AM v3 API" ;
+
+                                                           omn:hasEndpoint <http://fuseco.fokus.fraunhofer.de/api/sfa/am/v3> .
+
+
+
+###  urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+sa
+
+<urn:publicid:IDN+fuseco.fokus.fraunhofer.de+authority+sa> rdf:type omn-domain-geni-fire:SAService ,
+                                                                    owl:NamedIndividual ;
+
+                                                           rdfs:label "GENI SA v1 API" ;
+
+                                                           omn:hasEndpoint <http://fuseco.fokus.fraunhofer.de/api/sfa/sa/v1> .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
